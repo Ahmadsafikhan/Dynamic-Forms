@@ -80,7 +80,6 @@ import React, { useState } from "react";
 import MainForm from "./components/MainForm";
 import EducationalForm from "./components/EducationalForm";
 import Header from "./components/Header";
-import { useEducationalFormRefs } from "./UseEducationalFormRefs"; // Import the custom hook
 
 function App() {
   const [educationalForms, setEducationalForms] = useState([]);
@@ -92,15 +91,6 @@ function App() {
     console.log("I am updating Education Array", educationData);
     // Update your education data array logic
   };
-
-  // const handleAddEducationalForm = () => {
-  //   const newForm = { key: Date.now() };
-  //   setEducationalForms([...educationalForms, newForm]);
-
-  //   const newRef = addRef(); // Use the addRef function from the custom hook
-  //   console.log("Added new educational form reference:", newRef);
-  // };
-
     const handleAddEducationalForm = () => {
     const newForm = { key: Date.now() };
     setEducationalForms([...educationalForms, newForm]);

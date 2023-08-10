@@ -13,7 +13,6 @@
 //     degree: "",
 //     graduationYear: "",
 //   });
-  
 
 //   const ref = useRef();
 
@@ -104,8 +103,6 @@
 
 // export default EducationalForm;
 
-
-
 import React, { useEffect, useRef, useState } from "react";
 
 function EducationalForm({
@@ -133,7 +130,7 @@ function EducationalForm({
   const handleEducationChange = (e) => {
     const { name, value } = e.target;
     setEducationData({ ...educationData, [name]: value });
-    setValidation({ ...validation, [name]: value !== "" });
+    setValidation({ ...validation, [name]: value.trim().length !== "" });
   };
 
   const handleSubmit = (e) => {
@@ -145,6 +142,18 @@ function EducationalForm({
     if (isEducationalFormValid) {
       // Proceed with updating education data
       updateEducationDataArray(educationData);
+
+      setEducationData({
+        id: Date.now(),
+        schoolName: "",
+        degree: "",
+        graduationYear: "",
+      });
+      setValidation({
+        schoolName: false,
+        degree: false,
+        graduationYear: false,
+      });
     } else {
       // Display validation errors or alert
       // ... Display errors or alert ...
@@ -155,6 +164,17 @@ function EducationalForm({
   const handleRemoveForm = () => {
     onRemove(formId);
     handleRemoveRefForm(educationData.id);
+    setValidation({
+      schoolName: false,
+      degree: false,
+      graduationYear: false,
+    });
+    setEducationData({
+      id: Date.now(),
+      schoolName: "",
+      degree: "",
+      graduationYear: "",
+    });
   };
 
   useEffect(() => {

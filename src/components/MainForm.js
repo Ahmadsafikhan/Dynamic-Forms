@@ -124,24 +124,34 @@ function MainForm({ refsEducationalForm }) {
     // Validate MainForm fields
     const isMainFormValid = Object.values(validation).every(Boolean);
 
-    // Get validation status of all EducationalForms
     const isEducationalFormsValid = refsEducationalForm.every((form) => {
-      const fields = Object.keys(form.ref.current.elements);
-      return fields.every(
-        (field) => form.ref.current.elements[field].value !== ""
-      );
+      let formData = new FormData(form.ref.current);
+
+      const [...values] = formData.values();
+
+      return values.every((value) => value.trim().length);
+
+      // console.log(formData.entries());
+      // const fields = Object.entries(form.ref.current);
+      // console.log(fields);
+
+      // // Exclude the hidden submit button from validation
+      // const validFields = fields.filter((field) => field !== "submit");
+
+      // return validFields.every(
+      //   (field) => form.ref.current.elements[field].value !== ""
+      // );
     });
 
     console.log(isMainFormValid, isEducationalFormsValid);
 
     if (isMainFormValid && isEducationalFormsValid) {
-      // Proceed with your form submission logic here
-      // console.log("MainForm data:", data);
-
-      // Get education data from EducationalForms
       const educationDataArray = refsEducationalForm.map((form) => {
         const obj = {};
+
         let formData = new FormData(form.ref.current);
+        console.log(formData.entries);
+
         formData.forEach((value, key) => {
           obj[key] = value;
         });
@@ -149,9 +159,8 @@ function MainForm({ refsEducationalForm }) {
       });
       console.log("Education Data:", educationDataArray);
 
-      // ... Your existing form submission logic ...
+      // ... Your existing form submission logic ..
 
-      // After successful submission, you may want to reset form data and validation states
       setData({
         firstName: "",
         lastName: "",
