@@ -1,102 +1,3 @@
-// import { useState } from "react";
-
-// function MainForm({ refsEducationalForm }) {
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     const educationDataArray = refsEducationalForm.map((form) => {
-//       const obj = {};
-//       let formData = new FormData(form.ref.current);
-//       formData.forEach((value, key) => {
-//         obj[key] = value;
-//       });
-//       return obj;
-//     });
-
-//     console.log("Main Form is submitted");
-//     console.log("Data:", data);
-//     console.log("Education Data:", educationDataArray);
-//   };
-
-//   const [data, setData] = useState({
-//     firstName: "",
-//     lastName: "",
-//     email: "",
-//   });
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setData({ ...data, [name]: value });
-//   };
-
-//   return (
-//     <div className="w-[500px]">
-//       <form
-//         id="main-form"
-//         onSubmit={handleSubmit}
-//         className="p-6 bg-white rounded shadow-md"
-//       >
-//         <div className="mb-4">
-//           <label
-//             htmlFor="fname"
-//             className="block text-gray-700 text-sm font-bold mb-2"
-//           >
-//             First Name:
-//           </label>
-//           <input
-//             type="text"
-//             name="firstName"
-//             value={data.firstName}
-//             onChange={handleChange}
-//             className="w-full border rounded py-2 px-3 leading-tight focus:outline-none focus:border-blue-500"
-//           />
-
-//         </div>
-//         <div className="mb-4">
-//           <label
-//             htmlFor="lname"
-//             className="block text-gray-700 text-sm font-bold mb-2"
-//           >
-//             Last Name:
-//           </label>
-//           <input
-//             type="text"
-//             name="lastName"
-//             value={data.lastName}
-//             onChange={handleChange}
-//             className="w-full border rounded py-2 px-3 leading-tight focus:outline-none focus:border-blue-500"
-//           />
-//         </div>
-//         <div className="mb-4">
-//           <label
-//             htmlFor="email"
-//             className="block text-gray-700 text-sm font-bold mb-2"
-//           >
-//             Email:
-//           </label>
-//           <input
-//             type="text"
-//             name="email"
-//             value={data.email}
-//             onChange={handleChange}
-//             className="w-full border rounded py-2 px-3 leading-tight focus:outline-none focus:border-blue-500"
-//           />
-//         </div>
-//         <div>
-//           <button
-//             type="submit"
-//             className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-//           >
-//             Submit
-//           </button>
-//         </div>
-//       </form>
-//     </div>
-//   );
-// }
-
-// export default MainForm;
-
 import React, { useState } from "react";
 
 function MainForm({ refsEducationalForm }) {
@@ -176,6 +77,7 @@ function MainForm({ refsEducationalForm }) {
         console.log(form.ref.current);
         form.ref.current.reset(); // Reset each EducationalForm
       });
+      alert("form submitted successfully");
     } else {
       // Display validation errors or alert
       // ... You can display errors, show alert messages, etc.
