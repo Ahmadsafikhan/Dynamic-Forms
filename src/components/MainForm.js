@@ -81,12 +81,12 @@ function MainForm({ refsEducationalForm }) {
     } else {
       // Display validation errors or alert
       // ... You can display errors, show alert messages, etc.
-      console.log("Form validation failed");
+      alert("Form validation failed");
     }
   };
 
   return (
-    <div className="w-[500px]">
+    <div className=" w-full sm:w-[500px]">
       <form
         id="main-form"
         onSubmit={handleSubmit}

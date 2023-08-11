@@ -78,7 +78,7 @@ function EducationalForm({
   }, []);
 
   return (
-    <div className="w-[500px]">
+    <div className="w-full sm:w-[500px]">
       <form
         ref={ref}
         onSubmit={handleSubmit}
